@@ -13,14 +13,19 @@
 <title>Eva Lou</title>
 <!--
   ================= 这个文件里你可以改的两处 =================
-  ① 字体：下面这行 <link> 里的字体名 + 下方 <style> 里 :root 的 --font-display / --font-body / --font-hand。
+  ① 字体：下面 eva-fonts 脚本里的字体网址 + 下方 <style> 里 :root 的 --font-display / --font-body / --font-hand。
      去 fonts.google.com 选字体，名字里的空格写成 +。不想用网络字体就删掉这行，变量里写电脑自带字体。
   ② 文字：紧接着的 script 标签里的 CONTENT（往下翻一点就是）。
   ==========================================================
 -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Figtree:wght@400;500;600&amp;family=Caveat:wght@500;700&amp;display=swap" rel="stylesheet">
+<script id="eva-fonts">
+/* 字体链接（改字体就改这里的网址）。用脚本加载：网络打不开 Google 时（例如中国内地），页面会立刻用备用字体显示，不会卡住。 */
+(function(){ var l=document.createElement('link'); l.rel='stylesheet'; l.className='eva-fontcss';
+  l.href='https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=Caveat:wght@500;700&display=swap';
+  document.head.appendChild(l); })();
+</script>
 <script id="eva-mode">
 var EVA_EDITABLE = false;   /* true = 编辑版（左上角有 Edit page）；false = 发布版 */
 </script>
@@ -79,7 +84,7 @@ var CONTENT = {
             "id": "scam",
             "k": "Rotation 2 · Fraud analytics",
             "t": "An investment scam rule, from a blank page to live",
-            "n": "4 mo",
+            "n": "4 months",
             "nl": "to live in two markets",
             "p": "Investment scams were slipping past the existing rules, and I had never used the monitoring platform.",
             "d": "Built a clean payee base, designed name and frequency signals, taught myself the platform’s code, reconciled my analysis with live alerts line by line, and gave each market clear threshold options.",
@@ -90,11 +95,11 @@ var CONTENT = {
             "id": "memo",
             "k": "Rotation 1 · Fraud operations",
             "t": "A case memo generator, in VBA I taught myself",
-            "n": "6",
-            "nl": "scenarios live, ~1.7 FTE saved (estimated)",
-            "p": "Investigators wrote case memos by hand for two systems, one with a 255-character limit.",
+            "n": "~15%",
+            "nl": "more efficient on every case, and one standard memo format for the whole team",
+            "p": "The detection team wrote case memos by hand on two platforms, one with a strict character limit, and everyone wrote them their own way.",
             "d": "I had never written VBA. I taught myself, turned frontline complaints into requirements, built the tool in Excel, tested it with the people who would use it, and got business sign-off.",
-            "r": "All six scenarios live since March 2026, and used by the team every day."
+            "r": "All six scenarios live since March 2026. Every memo now follows one standard, and each case is about 15% more efficient."
           },
           {
             "id": "branch",
@@ -104,7 +109,7 @@ var CONTENT = {
             "nl": "",
             "status": "in progress",
             "p": "Branches can only call so many customers, so the list has to be the right one.",
-            "d": "Combined a scam susceptibility model with fraud risk signals across three markets, and showed how much each cut-off would change branch workload, by up to about six times. Built a monthly refresh so the list stays current.",
+            "d": "Combined a scam susceptibility model with fraud risk signals across three markets, and showed how much each cut-off would change branch workload Built a monthly refresh so the list stays current.",
             "r": "Still ongoing. My part is giving the frontline the numbers to make the call."
           }
         ]
@@ -116,12 +121,12 @@ var CONTENT = {
           {
             "id": "aiclinic",
             "k": "AI Clinic · GenAI use case",
-            "t": "A GenAI pre-check for card onboarding, built on HPS",
+            "t": "A GenAI pre-check for card onboarding",
             "n": "96.8%",
-            "nl": "accuracy in testing, ~50 team hours a month",
+            "nl": "accuracy in testing; ~25% less manual effort, with a person still signing off",
             "p": "The card team checked every application by hand against a 31-point list.",
-            "d": "I led this AI Clinic project in co-development mode: I wrote and tuned the prompt, and worked side by side with the card team so the capability would stay with them. I also proposed a minimum scan quality, with a safe “needs a manual check” fallback.",
-            "r": "Recognised with a Performance Enabler for Growth award. The card team’s own AI champion now maintains the prompt, which was the point. I then wanted to see whether it could run end to end as an agent, so I found the Group AI team, and we are now scoping an agentic version together.",
+            "d": "I led this AI Clinic workstream with the card team, not for them: wrote and tuned the prompt on the bank’s internal AI platform, and proposed that any scan too unclear for the AI goes to a person.",
+            "r": "Won a Performance Enabler for Growth award, and the card team’s own AI champion now runs it. Next: an agentic version, which I’m scoping with the central AI team.",
             "status": ""
           },
           {
@@ -131,7 +136,7 @@ var CONTENT = {
             "n": "0",
             "nl": "installs, no internet needed",
             "p": "Online AI slide tools aren’t available in a bank environment.",
-            "d": "Built a single-file app with AI as my development partner: write an outline, get an editable PowerPoint.",
+            "d": "With AI as my development partner, I built it as a single web page that runs offline: write an outline, get an editable PowerPoint.",
             "r": "Presented to colleagues at the People Learning Pathway."
           },
           {
@@ -165,15 +170,15 @@ var CONTENT = {
         "see": "case:branch"
       },
       {
-        "o": "AI builder",
+        "o": "Hands-on builder",
         "h": "#AIinOps",
         "t": "I put AI to work in real operations with the team, not for them, so capability stays when I move on.",
         "see": "case:aiclinic"
       },
       {
         "o": "Vibe coder",
-        "h": "#SideOfDesk",
-        "t": "Outside my core role, I build small tools with AI: an offline slide studio for the bank, and this site.",
+        "h": "#BeyondBAU",
+        "t": "Beyond BAU, I build small tools with AI: an offline slide studio for the bank, and this site.",
         "see": "case:deckhand"
       },
       {
@@ -292,11 +297,11 @@ var CONTENT = {
     "list": [
       {
         "h": "An agentic version of the card pre-check",
-        "p": "Scoping it with the Group AI team: what the agent does on its own, where a person still checks, and how we measure it."
+        "p": "Scoping it with the central AI team: what the agent does on its own, where a person still checks, and how we measure it."
       },
       {
         "h": "What I’m looking for next",
-        "p": "A team in risk, financial crime or operations transformation, where data and AI are tools and delivery is what counts."
+        "p": "My graduate programme wraps up next year, so I’m looking for my next role. If you think I could help your team, I’d love to talk."
       }
     ]
   },
@@ -347,14 +352,14 @@ var CONTENT = {
         "h": "Rotation 1 · Fraud operations, 2025 to 2026",
         "items": [
           "Acting team leader of five through a transition, including a full year-end cycle.",
-          "Case memo generator in self-taught Excel VBA: six scenarios live, ~1.7 FTE saved (estimated)."
+          "Case memo generator in self-taught Excel VBA: six scenarios live; one standard memo format; ~15% more efficient per case."
         ]
       },
       {
-        "h": "Side of desk",
+        "h": "AI projects, beyond BAU",
         "items": [
-          "AI Clinic: led a GenAI pre-check for card onboarding on HPS; 96.8% accuracy, ~50 team hours a month; Performance Enabler for Growth award.",
-          "Scoping an agentic version with the Group AI team.",
+          "AI Clinic: led a GenAI pre-check for card onboarding with the card team; 96.8% accuracy in testing, ~25% less manual effort, human sign-off kept as the final control; Performance Enabler for Growth award.",
+          "Scoping an agentic version with the central AI team.",
           "Built Deckhand and this website with AI."
         ]
       },
@@ -558,9 +563,12 @@ button{font:inherit;color:inherit}
 .lk.main{background:var(--red);border-color:var(--red);color:#fff}
 
 /* cv */
-.cv h3{font:400 24px/1.1 var(--font-display);margin:18px 0 6px}
-.cv ul{margin:0;padding-left:18px}
+.cv h3{font:400 24px/1.1 var(--font-display);margin:22px 0 8px;color:var(--red);display:flex;align-items:center;gap:10px}
+.cv h3::before{content:"";width:12px;height:12px;border-radius:50%;background:currentColor;flex-shrink:0}
+.cv ul{margin:0;padding:10px 14px 6px 30px;border-left:3px solid var(--red);background:var(--wash);border-radius:0 12px 12px 0}
 .cv li{margin-bottom:6px}
+.cv h3:nth-of-type(3){color:var(--wood)} .cv ul:nth-of-type(3){border-left-color:var(--wood);background:transparent;border:1.5px solid var(--line);border-left:3px solid var(--wood)}
+.cv h3:nth-of-type(4){color:var(--soft)} .cv ul:nth-of-type(4){border-left-color:var(--line);background:transparent}
 
 /* zoom */
 .zoom{position:fixed;inset:0;z-index:70;background:rgba(20,15,10,.82);display:none;align-items:center;justify-content:center;padding:calc(20px + env(safe-area-inset-top,0px)) 20px calc(20px + env(safe-area-inset-bottom,0px));cursor:zoom-out}
@@ -654,10 +662,10 @@ body.editing .figs button{cursor:pointer}
       <h1 class="name" id="name" aria-label="Eva Lou"></h1>
       <p class="pitch" id="pitch"></p>
       <p class="bio" id="bio"></p>
+      <button class="cvbtn" id="cvbtn" type="button"></button>
     </div>
     <div class="legendwrap" style="display:flex;flex-direction:column;gap:18px">
       <ul class="legend" id="legend"></ul>
-      <button class="cvbtn" id="cvbtn" type="button"></button>
     </div>
   </div>
 
@@ -796,6 +804,7 @@ function setLight(on){
 }
 sun.innerHTML=ICON.sun;
 sun.addEventListener('click',()=>setLight(!lit));
+setTimeout(()=>{ if(!lit) setLight(true); }, reduce?0:900);
 
 /* ======= hotspots + legend ======= */
 const SPOTS=[
@@ -986,6 +995,7 @@ function pickImage(key){
 function jsSafe(o,indent){ return JSON.stringify(o,null,indent).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029'); }
 function buildFile(editable){
   const doc=new DOMParser().parseFromString(SRC,'text/html');
+  doc.querySelectorAll('.eva-fontcss').forEach(e=>e.remove());
   doc.getElementById('eva-mode').textContent='\nvar EVA_EDITABLE = '+(editable?'true':'false')+';   /* true = 编辑版（左上角有 Edit page）；false = 发布版 */\n';
   doc.getElementById('eva-content').textContent='\n/* 网站文字。推荐在编辑版网页上点 Edit page 直接改；也可以在这里改（引号里的文字）。 */\nvar CONTENT = '+jsSafe(C,2)+';\n';
   doc.getElementById('eva-img').textContent='\nvar EVA_IMG = '+jsSafe(IMG)+';\n';
